@@ -1,0 +1,96 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;    
+    
+}
+
+.container{
+    margin: 30px auto;
+    max-width: 600px;
+    border: 2px solid #dddada;  
+    border-radius: 10px;
+    
+}
+
+h1{
+    color:#878787;
+    font-size: 35px;
+    font-weight: 100;
+    line-height: 50px;
+    margin-bottom: 0px;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    text-transform: capitalize;
+
+
+
+}
+
+li{
+    text-decoration: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: rgb(135,135,135);
+    font-size: 16px;
+    font-weight: 100;
+    line-height: 20px;
+}
+
+
+.footer{
+    margin: 10px auto;
+    text-align: center;
+}
+
+.row {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+#temperature{
+    font-size: 60px;
+    line-height: 1;
+    font-weight: 400;
+}
+
+#units{
+    position: relative;
+    font-size: 16px;
+    top: -28px;
+}
+
+img{
+    margin-top: -28px;
+    margin-right: 5px;
+    height: 64px;
+    width: 64px;
+    background-color: rgb(165, 243, 243);
+    border-radius: 15px;
+
+}
+
+
+.btn {
+    color: black;
+background-color: rgb(165, 243, 243);
+}
+
+.btn:hover{
+    color: white;
+    background-color: rgb(5, 194, 194);
+}
+
+.weather-temperature .active{
+    color:black;
+    cursor: default;
+}
+
+.weather-temperature .active:hover{
+    text-decoration: none;
+}
