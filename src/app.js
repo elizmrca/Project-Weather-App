@@ -13,9 +13,9 @@ function formatDate(timestamp){
     return `${day} ${hours}:${minutes} `;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+    console.log(response.data.daily);
     let forecastElement = document.querySelector("#forecast");
-
     let days = ["Thu", "Fri", "Sat","Sun"];
 
 let forecastHTML = `<div class="row">`;
@@ -31,12 +31,22 @@ let forecastHTML = `<div class="row">`;
             </div>
         </div>
         `;
-            });
+        });
         
             forecastHTML = forecastHTML + `</div>`;
             forecastElement.innerHTML= forecastHTML;
             console.log(forecastHTML);
         }
+
+function getForecast(coordinates) {
+    console.log(coordinates);
+    let apiKey="5f472b7acba333cd8a035ea85a0d4d4c";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+    console.log(apiUrl);
+
+    axios.get(apiUrl).then(displayForecast);
+
+}
 
 function displayTemperature(response){
     console.log(response.data);
@@ -59,6 +69,10 @@ function displayTemperature(response){
     dateElement.innerHTML=formatDate(response.data.dt*1000);
     weatherIconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     weatherIconElement.setAttribute("alt",response.data.weather[0].description);
+
+    getForecast(response.data.coord);
+
+    console.log(response.data);
 }
 
 
@@ -75,21 +89,6 @@ function handleSubmit(event){
     console.log(cityInputElement.value);
 }
 
-
-let celsiusTemperature=null;
-
-search("Manila");
-
-let form = document.querySelector("#search-form");
-form.addEventListener("submit", handleSubmit);
-
-
-displayForecast();
-
-
-
-
-//for conversion
 
 function convertToFahrenheit(event){
     event.preventDefault();
@@ -110,11 +109,13 @@ function convertToCelsius(event){
     //remove the active class to the fahrenheit link
     fahrenheitLink.classList.remove("active");
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
-
-    
-    
 }
 
+let celsiusTemperature=null;
+
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
 let fahrenheitLink=document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
@@ -123,5 +124,6 @@ let celsiusLink=document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", convertToCelsius);
 
 
+search("Manila");
 
 
