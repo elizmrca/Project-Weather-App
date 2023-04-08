@@ -66,7 +66,7 @@ a{
 }
 
 img{
-    margin-top: -28px;
+    margin-top: -20px;
     margin-right: 5px;
     height: 64px;
     width: 64px;
@@ -93,4 +93,37 @@ background-color: rgb(165, 243, 243);
 
 .weather-temperature .active:hover{
     text-decoration: none;
+}
+
+.weather-forecast {
+    margin-top: 20px;
+    text-align: center;
+    color: #000;
+}
+.weather-forecast-date {
+    font-size: 16px;
+    opacity: 0.5;
+    text-align: center;
+}
+.weather-forecast-temperature-min {
+    font-size: 16px;
+    opacity: 0.5;
+text-align: center;
+
+}
+.weather-forecast-temperature-max {
+    font-size: 16px;
+text-align: center;
+
+    
+}
+
+.weather-forecast-temperatures {
+    font-size: 13px;
+    text-align: center;
+
+}
+#img-forecast{
+    margin-top: 10px;
+    
 }
