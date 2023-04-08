@@ -21,7 +21,6 @@ function formatDay(timestamp){
     return days[day];
 }
 
-
 function displayForecast(response) {
     console.log(response.data.daily);
     let forecast = response.data.daily;
@@ -102,40 +101,8 @@ function handleSubmit(event){
     console.log(cityInputElement.value);
 }
 
-
-function convertToFahrenheit(event){
-    event.preventDefault();
-    let temperatureElement = document.querySelector("#temperature");
-    //remove the active class from the celsius link
-    celsiusLink.classList.remove("active");
-    //add the active class to the fahrenheit link
-    fahrenheitLink.classList.add("active");
-    let fahrenheitTemp = Math.round((celsiusTemperature * 9)/5 + 32);
-    temperatureElement.innerHTML=Math.round(fahrenheitTemp);
-}
-
-function convertToCelsius(event){
-    event.preventDefault();
-    let temperatureElement=document.querySelector("#temperature");
-    //add the active class from the celsius link
-    celsiusLink.classList.add("active");
-    //remove the active class to the fahrenheit link
-    fahrenheitLink.classList.remove("active");
-    temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature=null;
-
-
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink=document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-let celsiusLink=document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
-
 
 search("Manila");
 
